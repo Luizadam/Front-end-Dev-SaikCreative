@@ -1,0 +1,21 @@
+.registPage{
+    margin:0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 120px;
+    
+}
+body{
+    background-color: #F0F0F0;
+}
+
+.card{
+    border-radius: 20px;
+}
+
+.descRegist{
+    margin-top: 4rem;
+    float: left;
+}

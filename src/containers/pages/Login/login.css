@@ -1,0 +1,51 @@
+.loginPage{
+    margin:0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 120px;
+}
+
+.inputEmail{
+border-top-style: hidden;
+border-right-style: hidden;
+border-left-style: hidden;
+border-bottom-style: groove;
+}
+
+.inputEmail:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.inputPass{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+}
+
+.inputPass:focus{
+    outline:none;
+    box-shadow: none;
+    background-color: none;
+    outline-color: transparent;
+}
+
+#cardLogin{
+width:30rem;
+outline: hidden;
+border-color: transparent;
+}
+
+.btnLogin{
+    width: 100%;
+    border-radius: 25px;
+    height: 3rem;
+}
+
+.descLogin{
+    margin-top: 6rem;
+    float: left;
+}
