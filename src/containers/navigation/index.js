@@ -30,7 +30,7 @@ class index extends Component {
           <a href="#news">News</a>
           <a href="#contact">Contact</a>
           <a href="#about">About</a>
-          <a className="text-white" onClick={this.handleLogout}>Logout</a>
+          <a className="text-white" onClick={this.handleLogout} style={{float:"right"}}>Logout</a>  
           
           <a href="#" className="icon" onClick={this.myFunction}>
             &#9776;

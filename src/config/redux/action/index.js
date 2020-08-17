@@ -1,5 +1,7 @@
 import Axios from 'axios'
 import history from '../../../history'
+import swal from 'sweetalert'
+
 
 export const registerAkun = (data) => (dispatch) => {
     Axios({
@@ -47,7 +49,14 @@ export const loginAkun = (dataLogin) => (dispatch) => {
         
     })
     .catch( err => {
-        alert(err.response.data.message)
+        swal({
+            title: "Attention",
+            text: err.response.data.message,
+            icon: "error",
+            buttons: false,
+            timer: 2000,
+          });
+        
     })
     
 })

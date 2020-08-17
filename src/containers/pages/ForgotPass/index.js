@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import Axios from 'axios'
-import history from '../../../history'
+import history from '../../../history';
+import swal from 'sweetalert'
 
 class index extends Component {
     state={
@@ -28,7 +29,11 @@ class index extends Component {
             }
         })
         .then(response => {
-            alert("link sudah terkirim silakan cek email anda")
+            swal({
+                title: "Good job!",
+                text: "check your email ! ",
+                icon: "success",
+              });
         })
         .catch(err => {
             console.log(err.response.data.message)
