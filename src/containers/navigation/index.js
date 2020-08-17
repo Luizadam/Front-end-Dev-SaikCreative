@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import "./navigation.css";
+import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import history from '../../history'
 
 class index extends Component {
   myFunction = () => {
@@ -10,6 +13,13 @@ class index extends Component {
       x.className = "topnav";
     }
   };
+
+  handleLogout = () => {
+    localStorage.clear()
+    if (!localStorage.getItem("token")){
+      history.push('/')
+    }
+  }
   render() {
     return (
       <div>
@@ -20,27 +30,8 @@ class index extends Component {
           <a href="#news">News</a>
           <a href="#contact">Contact</a>
           <a href="#about">About</a>
-          <span
-            className="btn btn-secondary dropdown-toggle profile"
-            href="#"
-            role="button"
-            id="dropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-          >
-            Luiz adam
-          </span>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a className="dropdown-item" href="#">
-              Action
-            </a>
-            <a className="dropdown-item" href="#">
-              Another action
-            </a>
-            <a className="dropdown-item" href="#">
-              Something else here
-            </a>
-          </div>
+          <a className="text-white" onClick={this.handleLogout}>Logout</a>
+          
           <a href="#" className="icon" onClick={this.myFunction}>
             &#9776;
           </a>
@@ -50,4 +41,10 @@ class index extends Component {
   }
 }
 
-export default index;
+const mapDispatchToProps = dispatch =>{
+  return {
+    logout : () => dispatch ({type:"CHANGE_USER",value:{}})
+  }
+}
+
+export default connect (null,mapDispatchToProps) (index);

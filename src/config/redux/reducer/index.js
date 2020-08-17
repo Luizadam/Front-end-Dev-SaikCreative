@@ -1,6 +1,7 @@
 const initState = { 
     isLogin : false,
     user:{},
+    token:{}
 }
 
 const reducer = (state = initState, action ) =>{

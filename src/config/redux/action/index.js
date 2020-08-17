@@ -1,4 +1,6 @@
 import Axios from 'axios'
+import history from '../../../history'
+
 export const registerAkun = (data) => (dispatch) => {
     Axios({
         method:"POST",
@@ -14,6 +16,7 @@ export const registerAkun = (data) => (dispatch) => {
     })
     .then(res => {
         console.log("suksess")
+        history.push('/')
     })
     
 }
@@ -32,8 +35,20 @@ export const loginAkun = (dataLogin) => (dispatch) => {
         }
     })
     .then(res => {
-        console.log(res.data)
-        dispatch({type:"CHANGE_USER",value:res.data})
+        localStorage.setItem('token',res.data.token)
+        localStorage.setItem('user',JSON.stringify({
+            fullname:res.data.user.fullname,
+            email:res.data.user.email,
+            isLogin:true
+        }))
+        history.push('/dashboard')
+        dispatch({type:"CHANGE_USER",value:res.data.user})
+        dispatch({type:"CHANGE_TOKEN",value:res.data.token})
+        
     })
+    .catch( err => {
+        alert(err.response.data.message)
+    })
+    
 })
 }

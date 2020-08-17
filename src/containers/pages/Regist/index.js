@@ -19,14 +19,12 @@ class index extends Component {
     }
 
     handleSubmit = () => {
-        const {history} = this.props
+        const {Fullname,email,password} = this.state
         if(this.state.email === "" || this.state.Fullname === ""||
         this.state.password === "" ){
             alert("lengkapi data anda!!")
         }else{
-            const {Fullname,email,password} = this.state
             this.props.regist({Fullname,email,password})
-            history.push('/')
         }
     }
     render() {
@@ -34,11 +32,11 @@ class index extends Component {
         <div className="container-fluid" id="main">
             <div className="registPage">
                 <div className="card" id="cardLogin">
-                    <span className="text-center mb-5"><h3>REGIST YOUR ACCOUNT</h3></span>
-                    <div className="card-body mt-5" >
+                    <span className="text-center mb-3"><h3>REGIST YOUR ACCOUNT</h3></span>
+                    <div className="card-body mt-3" >
                         <div className="form-group">
-                            <input type="text" className="form-control mb-3 inputEmail" id="Fullname" placeholder="Full Name" onChange={this.handleChange}/>
-                            <input type="email" className="form-control mb-3 inputEmail" id="email" placeholder="Email" onChange={this.handleChange}/>
+                            <input type="text" className="form-control mb-4 inputEmail" id="Fullname" placeholder="Full Name" onChange={this.handleChange}/>
+                            <input type="email" className="form-control mb-4 inputEmail" id="email" placeholder="Email" onChange={this.handleChange}/>
                             <input type="password" className="form-control mb-3 inputPass" id="password"placeholder="Password" onChange={this.handleChange}/>
                         </div>
                         <button className="btn btn-primary btnLogin mt-4" onClick={this.handleSubmit}>SIGN UP</button>

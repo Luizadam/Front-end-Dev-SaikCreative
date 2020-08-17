@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Axios from 'axios'
+import history from '../../../history'
 
 class index extends Component {
     state={
         email:""
     }
+
 
     handleChange = (e) => {
         this.setState({
@@ -16,6 +19,22 @@ class index extends Component {
         if (this.state.email === "") {
             alert("email tidak boleh kosong !!")
         }
+        else {
+        Axios({
+            method:"PUT",
+            url:"http://localhost:3001/forgotPass",
+            data:{
+                email:this.state.email
+            }
+        })
+        .then(response => {
+            alert("link sudah terkirim silakan cek email anda")
+        })
+        .catch(err => {
+            console.log(err.response.data.message)
+            alert(err.response.data.message)
+        })
+    }
     }
     render() {
         return (
